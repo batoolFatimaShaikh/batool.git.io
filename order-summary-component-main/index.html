@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Order summary card</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    
+   body{
+      padding: 0;
+      margin: 0 0;
+      background-color: hsl(225, 100%, 94%);;
+      background-image:url("./images/pattern-background-desktop.svg" );
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 100%;
+      text-align: center;
+    }
+    
+    .section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 50px;
+      
+    }
+    .container {
+      max-width: 310px;
+      background-color: white;
+      border-radius: 20px ;
+      border: none;
+      box-shadow:  10px 20px 10px  hsl(244, 13%, 45%);
+    }
+    
+    .img{
+      border-radius: 20px 20px 0 0;
+    }
+    p{
+      text-align: center;
+      margin: 0 10px;
+      
+    }
+    .description{
+      font-size: 13px ;
+      margin: 5px 15px;
+    }
+    .heading{
+      font-weight: 200;
+      font-size: 20px;
+      margin-top: 25px;
+    }
+    .plan{
+      display: flex;
+      flex-direction: row;
+      background-color: rgb(238, 235, 235);
+      border-radius: 20px ;
+      margin: 20px 15px ;
+      padding: 0;
+      border: none;
+   
+      
+    }
+    .icon{
+      width: 33%;
+      display: flex;
+      flex-direction: row;
+      justify-self: flex-end;
+      
+    }
+    .icon> img{
+      margin: 15px 0px 15px 30px;
+    }
+    .mid{
+      width: 33%;
+      margin-top: 15px;
+      padding-top: 10px;
+      font-size: 14px;
+      
+    }
+    .mid> .dollors{
+      font-size: 11px;
+
+    }
+    .right{
+      width: 33%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+      margin-right: 15px;
+     
+  }
+  .right>span{
+    font-size: 11px;
+    margin-top: 20px;
+  }
+  .cancel, .proceed{
+    display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-content: center;
+      margin: 0 30px;
+      
+    
+  }
+  .proceed >button:hover{
+    background-color:blue;
+    cursor: pointer;
+  }
+  .cancel >button:hover{
+    background-color:red;
+    cursor:pointer;
+  }
+  
+  button{
+     
+      background-color: rgb(194, 191, 191);
+      border-radius: 12px ;
+      border: none;
+      box-shadow:0px 5px 5px  hsl(244, 13%, 45%);
+      margin-bottom: 20px;
+      padding:12px ;
+    }
+    @media only screen and (max-width: 475px) {
+       *{
+          background-image: url("images/pattern-background-mobile.svg");
+      }
+    }
+    
+
+  </style>
+</head>
+<body>
+<section class="section" >
+<div class="container">
+
+  <img class="img" src="./images/illustration-hero.svg" width="310" height="220"/>
+  <p class="heading"><strong>Order Summary</strong></p>
+  <p class="description">You can now listen to million of songs,audiobooks,and podcasts
+      on any device anywhere you like!</p>
+   <div  class="plan">
+    <span class="icon"><img src="./images/icon-music.svg" alt="..."></span>
+    <div class="mid" id="demo">
+      <span><strong>Annual Plan</strong></span>
+      <span class="dollors">$59.99/year</span> 
+    </div>
+      <div class="right">
+      
+      <span><a href="./price.html" target="popup" onclick="window.open(' ./price.html','popup','width=600,height=600'); return false;"> Check your Plan here </a> </span>
+    </div>
+    </div>
+    <span><button onclick="myFunction()">change</button></span>
+  <div class="proceed" >
+    <button onclick="proceed()">Proceed to Payment</button>
+  </div>
+
+  <div class="cancel">
+    <button onclick="cancel()">Cancel order</button>
+  </div>
+</div>
+</section> 
+<footer><p id="message"></p></footer>
+</body>
+<script>
+  
+ function myFunction() {
+  let text;
+  let person = prompt("Enter your plan Here:", "Basic");
+  if (person == null || person == "") {
+    text = "User cancelled the prompt.";
+  } else {
+    text = " " + person + "";
+  }
+  document.getElementById("demo").innerHTML = text;
+}
+function proceed() {
+  alert("Your payment is done! Enjoy your plan! ");
+}
+function cancel(){
+  let cancelOrder=confirm("Do you really want to Cancel order?");
+  if (cancelOrder){
+    document.getElementById("message").innerText="Your order has been successfully cancelled";
+  }
+  else{
+    document.getElementById("message").innerText="Continue with payment";
+  }
+}
+
+</script>
+
+</html>
